@@ -16,8 +16,13 @@ public class CarBehaviour2a : CarBehaviour {
 		//Calculate target motor values
 		//m_LeftWheelSpeed = leftSensor * MaxSpeed;
 		//m_RightWheelSpeed = rightSensor * MaxSpeed;
-
-		m_LeftWheelSpeed = leftSensorB * MaxSpeed;
-		m_RightWheelSpeed = rightSensorB * MaxSpeed;
+		if (leftSensorB == rightSensorB) {
+			m_LeftWheelSpeed = leftSensorB * MaxSpeed ;
+			m_RightWheelSpeed = rightSensorB * MaxSpeed;
+		} else {
+		
+			m_LeftWheelSpeed = leftSensorB * MaxSpeed *1.5f;
+			m_RightWheelSpeed = rightSensorB * MaxSpeed;
+		}
 	}
 }
