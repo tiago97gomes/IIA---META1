@@ -21,7 +21,7 @@ public class CarBehaviour2a : CarBehaviour {
 			m_RightWheelSpeed = rightSensorB * MaxSpeed;
 		} else {
 		
-			m_LeftWheelSpeed = leftSensorB * MaxSpeed *1.5f;
+			m_LeftWheelSpeed = leftSensorB * MaxSpeed *1.4f;
 			m_RightWheelSpeed = rightSensorB * MaxSpeed;
 		}
 	}
