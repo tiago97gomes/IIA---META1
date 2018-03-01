@@ -89,10 +89,9 @@ public class LightDetectorScript : MonoBehaviour {
 
 	public float GetGaussianOutput()
 	{
-
 		float gauss;
 		if (strength > StrenghtBottomLimit && strength < StrenghtTopLimit) {
-			gauss = 1 / (stddev * (float)Math.Sqrt (2 * Math.PI)) * (float)Math.Exp (-(strength - mean) * (strength - mean) / (stddev * stddev));
+			gauss = Mathf.Exp (-(strength - mean) * (strength - mean) / (2*(stddev * stddev)));
 		}
 		else{
 			gauss = 0;
