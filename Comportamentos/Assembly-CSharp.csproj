@@ -51,9 +51,19 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+     <Compile Include="Assets\Scripts\BlockDetectorScript.cs" />
+     <Compile Include="Assets\Scripts\BlockDetectorScriptLE.cs" />
      <Compile Include="Assets\Scripts\CarBehaviour.cs" />
      <Compile Include="Assets\Scripts\CarBehaviour2a.cs" />
+     <Compile Include="Assets\Scripts\CarBehaviour2aBlocks.cs" />
+     <Compile Include="Assets\Scripts\CarBehaviour2aLEB.cs" />
+     <Compile Include="Assets\Scripts\CarBehaviour2aLEL.cs" />
+     <Compile Include="Assets\Scripts\CarBehaviourBlocks.cs" />
+     <Compile Include="Assets\Scripts\CarBehaviourLEB.cs" />
+     <Compile Include="Assets\Scripts\CarBehaviourLEL.cs" />
+     <Compile Include="Assets\Scripts\CarTrigger.cs" />
      <Compile Include="Assets\Scripts\LightDetectorScript.cs" />
+     <Compile Include="Assets\Scripts\LightDetectorScriptLE.cs" />
  <Reference Include="UnityEngine.UIAutomation">
  <HintPath>/Applications/Unity/Unity.app/Contents/UnityExtensions/Unity/UIAutomation/UnityEngine.UIAutomation.dll</HintPath>
  </Reference>

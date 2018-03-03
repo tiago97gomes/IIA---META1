@@ -13,6 +13,10 @@ public class CarBehaviour : MonoBehaviour {
 	public float m_LeftWheelSpeed;
 	public float m_RightWheelSpeed;
 	private float m_axleLength;
+	/*
+	 * Agression -> LeftLD | Right   RightLD | Left
+	 * Fear -> LeftLD | Left   RightLD | Right
+	*/
 
 	void Start()
 	{
