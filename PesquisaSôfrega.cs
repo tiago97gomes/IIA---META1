@@ -29,7 +29,7 @@ public class PesquisaSôfrega : SearchAlgorithm {
 				foundPath = true;
 			} else {
 				foreach (Node suc in GetNodeSucessors(currentState.node)) {
-					SearchState new_node = new SearchState(suc, suc.gCost + currentState.g, GetHeuristic(currentState),currentState);
+					SearchState new_node = new SearchState(suc, suc.gCost + currentState.g, GetHeuristic(currentState.node),currentState);
 					openQueue.Add (new_node, (int)new_node.h);
 				}
 				// for force

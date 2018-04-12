@@ -45,7 +45,6 @@ public class SofregaSearch : SearchAlgorithm {
 		{
 			finished = true;
 			running = false;
-			foundPath = true;
 		}
 
 	}

@@ -45,7 +45,6 @@ public class Depth : SearchAlgorithm {
 		{
 			finished = true;
 			running = false;
-			foundPath = true;
 		}
 
 	}

@@ -46,7 +46,6 @@ public class DepthLim : SearchAlgorithm {
 		{
 			finished = true;
 			running = false;
-			foundPath = true;
 		}
 
 	}

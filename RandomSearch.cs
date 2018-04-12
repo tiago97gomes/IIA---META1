@@ -47,7 +47,6 @@ public class RandomSearch : SearchAlgorithm {
 		{
 			finished = true;
 			running = false;
-			foundPath = true;
 		}
 
 	}
