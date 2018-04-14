@@ -10,9 +10,9 @@ public class Aestrela : SearchAlgorithm {
 		startNode = GridMap.instance.NodeFromWorldPoint (startPos);
 		targetNode = GridMap.instance.NodeFromWorldPoint (targetPos);
 
-		SearchState start = new SearchState (startNode, 0);
+		SearchState start = new SearchState (startNode, 0, GetHeuristic(startNode), null);
 		openQueue = new PriorityQueue ();
-		openQueue.Add(start, 0);
+		openQueue.Add(start, (int)start.f);
 
 	}
 
@@ -29,7 +29,7 @@ public class Aestrela : SearchAlgorithm {
 				foundPath = true;
 			} else {
 				foreach (Node suc in GetNodeSucessors(currentState.node)) {
-					SearchState new_node = new SearchState(suc, suc.gCost + currentState.g, GetHeuristic(currentState.node), currentState);
+					SearchState new_node = new SearchState(suc, suc.gCost + currentState.g, GetHeuristic(suc), currentState);
 					openQueue.Add (new_node, (int)new_node.f);
 				}
 				// for force
