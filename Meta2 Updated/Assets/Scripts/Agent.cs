@@ -136,23 +136,10 @@ public class Agent : MonoBehaviour {
 
 	public void FixedUpdate() {
 		Time.timeScale = 0.1f;
-		if (!skipAnimations)
-		{
 			if(path != null) {
 				Move ();
 			}
-		}
-		else
-		{
-			if(path != null)
-			{
-				isAtTarget = true;
-				isMoving = false;
-				transform.position = path[path.Count - 1].worldPosition + new Vector3(0, 1f, 0);
-			}
-		}
-		
-	}
+}
 
 	/// <summary>
 	/// Rotates the agent towards the next position.
