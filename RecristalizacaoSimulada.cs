@@ -19,7 +19,7 @@ public class RecristalizacaoSimulada : SearchAlgorithm {
 		VisitNode (currentState);
 		t++;
 		float T = PolEscalona(t);
-		Debug.Log (T);
+
 		if (currentState.node == targetNode) {
 			solution = currentState;
 			finished = true;
@@ -27,7 +27,6 @@ public class RecristalizacaoSimulada : SearchAlgorithm {
 			foundPath = true;
 		}
 		if (T == 0) {
-			solution = currentState;
 			finished = true;
 			running = false;
 		}
@@ -37,6 +36,7 @@ public class RecristalizacaoSimulada : SearchAlgorithm {
 		if (new_node.h > currentState.h) {
 			currentState = new_node;
 		} else {
+			Debug.Log ((currentState.h - new_node.h)/T);
 			if (Mathf.Exp((currentState.h - new_node.h)/T) > Random.value){
 				currentState = new_node;
 			}
@@ -44,15 +44,15 @@ public class RecristalizacaoSimulada : SearchAlgorithm {
 	}
 
 	private float PolEscalona(int t){
-		return (float)(2 - t*0.0001f);
+		return (2.0f - t*0.0001f);
 	}
 
 	private float PolEscalona2(int t){
-		return t;
+		return 2.0f - Mathf.Exp(-t);
 	}
 
-	private float PolEscalona3(int t){
-		return (int)Mathf.Exp((-1)*(Mathf.Pow(t,2))/(Mathf.Pow(1,2)));
+	private float PolEscalona3(int t){ 
+		return 2.0f - (float)Mathf.Exp((-1)*(Mathf.Pow(t - 0.5f,2))/(2*Mathf.Pow(0.12f,2)));
 	}
 
 }
