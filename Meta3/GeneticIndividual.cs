@@ -5,7 +5,7 @@ using UnityEngine;
 public class GeneticIndividual : Individual {
 
 
-	GeneticIndividual(int[] topology) : base(topology) {
+	public GeneticIndividual(int[] topology) : base(topology) {
 	}
 
 	public override void Initialize () 
@@ -22,18 +22,21 @@ public class GeneticIndividual : Individual {
 			List<int> cortes = new List<int>();
 			for (int i = 0; i < termos; i++) {
 				while (cortes.Contains(rand = Random.Range(0, totalSize)));
-
 				cortes.Add (rand);
 			}
 			cortes.Sort();
 			bool v = true;
 			for (int i = 0; i < termos; i++) {
 				if (v) {
-					if (i - 1 == termos)
-						partner.getGenotype.CopyTo (genotype, termos [i]);
-					partner.getGenotype.CopyTo (genotype, termos [i], termos [i + 1]);
-				}
-				v = v + false;
+					if (i == termos - 1)
+						partner.getGenotype.CopyTo (genotype, cortes [i]);
+					else {
+						for (int j = cortes [i]; j <= cortes [i + 1]; j++)
+							genotype [j] = partner.getGenotype [j];
+					}
+					v = false;
+				} else
+					v = true;
 			}
 		}
 	}
@@ -57,5 +60,4 @@ public class GeneticIndividual : Individual {
 
 		return new_ind;
 	}
-
 }

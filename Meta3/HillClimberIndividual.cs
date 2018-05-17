@@ -23,7 +23,7 @@ public class HillClimberIndividual : Individual {
 		}
 	}
 
-	public override void Crossover (Individual partner, float probability)
+	public override void Crossover (Individual partner, float probability, int termos)
 	{
 		throw new System.NotImplementedException ();
 	}

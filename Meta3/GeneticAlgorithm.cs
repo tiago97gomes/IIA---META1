@@ -24,14 +24,37 @@ public class GeneticAlgorithm : MetaHeuristic {
 
 		updateReport (); //called to get some stats
 		// fills the rest with mutations of the best !
-		for (int i = 0; i < populationSize ; i++) {
-			GeneticIndividual tmp = (GeneticIndividual) overallBest.Clone ();
-			tmp.Mutate (mutationProbability);
-			new_pop.Add (tmp.Clone());
-		}
+		for (int i = 0; i < populationSize; i++) {
+			
+			GeneticIndividual pai = (GeneticIndividual)Tournament (population, tournamentSize).Clone();
+			GeneticIndividual pai2 = (GeneticIndividual)Tournament (population, tournamentSize).Clone();
 
+			pai.Crossover (pai2.Clone(), crossoverProbability, 2);
+			pai.Mutate (mutationProbability);
+			new_pop.Add (pai.Clone());
+		}
+		//if (elitist)
 		population = new_pop;
 
 		generation++;
+	}
+
+	private Individual Tournament(List<Individual> populacao, int num){
+		List<int> lista = new List<int>();
+		Individual individo;
+		int rand;
+		for (int i = 0; i < num; i++) {
+			while (lista.Contains (rand = Random.Range (0, populacao.Count)));
+			lista.Add (rand);
+		}
+
+		individo = populacao [lista [0]];
+		for (int i = 1; i < num; i++) {
+			if (individo.Fitness < populacao [lista[i]].Fitness){
+				individo = populacao [lista [i]];
+			}
+		}
+
+		return individo;
 	}
 }

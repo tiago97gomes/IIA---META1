@@ -74,6 +74,6 @@ public abstract class Individual {
 	//override on each specific individual class
 	public abstract void Initialize ();
 	public abstract void Mutate (float probability);
-	public abstract void Crossover (Individual partner, float probability);
+	public abstract void Crossover (Individual partner, float probability, int termos);
 	public abstract Individual Clone ();
 }
