@@ -30,8 +30,10 @@ public class GeneticIndividual : Individual {
 			bool v = true;
 			for (int i = 0; i < termos; i++) {
 				if (v) {
-					if (i == termos - 1)
-						partner.getGenotype.CopyTo (genotype, cortes [i]);
+					if (i == termos - 1) {
+						for (int j = cortes [i]; j < totalSize; j++)
+							genotype [j] = partner.getGenotype [j];
+					}
 					else {
 						for (int j = cortes [i]; j <= cortes [i + 1]; j++)
 							genotype [j] = partner.getGenotype [j];
