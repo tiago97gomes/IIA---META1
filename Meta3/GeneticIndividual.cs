@@ -6,6 +6,7 @@ public class GeneticIndividual : Individual {
 
 
 	public GeneticIndividual(int[] topology) : base(topology) {
+		Random.InitState (System.DateTime.Now.Millisecond);
 	}
 
 	public override void Initialize () 
@@ -17,6 +18,7 @@ public class GeneticIndividual : Individual {
 		
 	public override void Crossover (Individual partner, float probability, int termos)
 	{
+		
 		int rand;
 		if (Random.Range (0.0f, 1.0f) < probability) {
 			List<int> cortes = new List<int>();

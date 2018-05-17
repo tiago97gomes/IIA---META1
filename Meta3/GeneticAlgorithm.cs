@@ -9,6 +9,8 @@ public class GeneticAlgorithm : MetaHeuristic {
 	public bool elitist;
 
 	public override void InitPopulation () {
+		Random.InitState (System.DateTime.Now.Millisecond);
+
 		population = new List<Individual> ();
 		// jncor 
 		while (population.Count < populationSize) {
