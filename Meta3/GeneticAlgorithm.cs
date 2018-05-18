@@ -8,6 +8,7 @@ public class GeneticAlgorithm : MetaHeuristic {
 	public int tournamentSize;
 	public int numerocortes;
 	public bool elitist;
+	public int n_elitists;
 
 	public override void InitPopulation () {
 	
@@ -23,6 +24,18 @@ public class GeneticAlgorithm : MetaHeuristic {
 	//The Step function assumes that the fitness values of all the individuals in the population have been calculated.
 	public override void Step() {
 		List<Individual> new_pop = new List<Individual> ();
+		List<Individual> elitist_list = new List<Individual> ();
+
+		if (elitist) {
+			population.Sort ((x,y) => x.Fitness.CompareTo(y.Fitness));
+			Debug.Log ("P: ");
+			for (int i = 0; i < populationSize; i++)
+				Debug.Log (population [i].Fitness);
+			for (int i = 0; i < n_elitists; i++) {
+				int pop = populationSize - 1;
+				elitist_list.Add (population [pop - i].Clone ());
+			}
+		}
 
 		updateReport (); //called to get some stats
 		// fills the rest with mutations of the best !
@@ -35,9 +48,16 @@ public class GeneticAlgorithm : MetaHeuristic {
 			pai.Mutate (mutationProbability);
 			new_pop.Add (pai.Clone());
 		}
-		//if (elitist)
+
 		population = new_pop;
 
+		if (elitist) {
+			for (int i = 0; i < n_elitists; i++) {
+				Individual pick_to_delete = new_pop [Random.Range (0, populationSize - 1)];
+				new_pop.Remove(pick_to_delete);
+				new_pop.Add (elitist_list [i].Clone ());
+			}
+		}
 		generation++;
 	}
 
