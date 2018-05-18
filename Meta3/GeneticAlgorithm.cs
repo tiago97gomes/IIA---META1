@@ -6,11 +6,11 @@ public class GeneticAlgorithm : MetaHeuristic {
 	public float mutationProbability;
 	public float crossoverProbability;
 	public int tournamentSize;
+	public int numerocortes;
 	public bool elitist;
 
 	public override void InitPopulation () {
-		Random.InitState (System.DateTime.Now.Millisecond);
-
+	
 		population = new List<Individual> ();
 		// jncor 
 		while (population.Count < populationSize) {
@@ -31,7 +31,7 @@ public class GeneticAlgorithm : MetaHeuristic {
 			GeneticIndividual pai = (GeneticIndividual)Tournament (population, tournamentSize).Clone();
 			GeneticIndividual pai2 = (GeneticIndividual)Tournament (population, tournamentSize).Clone();
 
-			pai.Crossover (pai2.Clone(), crossoverProbability, 2);
+			pai.Crossover (pai2.Clone(), crossoverProbability, numerocortes);
 			pai.Mutate (mutationProbability);
 			new_pop.Add (pai.Clone());
 		}

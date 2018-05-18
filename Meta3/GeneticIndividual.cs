@@ -6,7 +6,6 @@ public class GeneticIndividual : Individual {
 
 
 	public GeneticIndividual(int[] topology) : base(topology) {
-		Random.InitState (System.DateTime.Now.Millisecond);
 	}
 
 	public override void Initialize () 

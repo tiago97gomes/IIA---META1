@@ -49,7 +49,7 @@ public class EvolvingCarControl : MonoBehaviour {
 		DontDestroyOnLoad(gameObject);
 		initMetaHeuristic ();
 		BatchmodeConfig.HandleArgs (this, metaengine);
-		Random.InitState (seed);
+		Random.InitState (System.DateTime.Now.Millisecond);
 		init ();
 
 	}
