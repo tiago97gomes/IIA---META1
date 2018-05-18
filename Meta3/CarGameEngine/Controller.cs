@@ -142,12 +142,12 @@ public class Controller : MonoBehaviour
 
 	public float GetScore() {
 		// Fitness function. You should modify this.
-		return  (numberOfLaps + 1) * (checkpoints.Length + 1) * driveTime * distanceTravelled;
+		return  (numberOfLaps + 1) * (checkpoints.Length + 1) + driveTime * 0.001f * distanceTravelled;
 	}
 
 	public float GetScore2() { 
 		// Fitness function. You should modify this.  
-		return  (numberOfLaps * checkpoints.Length + numberOfCheckpoints) + driveTime * distanceTravelled;
+		return  (numberOfLaps + 1) * (checkpoints.Length + 1) * driveTime * distanceTravelled;
 	}
 
 	public void wrapUp () {
